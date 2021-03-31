@@ -22,12 +22,12 @@
 
 # Respuestas: 
 
-# 1. Para lograr que las poleras puedan tener tallas y colores en distintas variaciones, debemos crear las tablas Colores, Tallas y Variaciones. Además, debemos pasar los atributos de Producto: 'Stock', 'Price' y 'SKU' a la tabla Variaciones. Lo ideal sería quitar product_id de OrderItem, pero el desafío no nos permite quitar atributos de OrderItem. Por lo que se requiere agregar la variación del producto, con su color y talla en caso de aplicar.
+# 1. Para lograr que las poleras puedan tener tallas y colores en distintas variaciones, debemos crear las tablas Colores, Tallas y Variaciones. Además, debemos pasar los atributos de Producto: 'Stock', 'Price' y 'SKU' a la tabla Variaciones. Lo ideal sería quitar product_id de OrderItem, pero el desafío no nos permite quitar atributos de OrderItem. Por lo que se requiere agregar la variación del producto, con su color y talla en caso de aplicar. Listo.
 
 
-# 2. Para esto se debe agregar la columna 'category_id' a la tabla Categories, y crear una relación has_many consigo misma para las categorías hijo, y una belongs_to para la categoría padre.
+# 2. Para esto se debe agregar la columna 'category_id' a la tabla Categories, y crear una relación has_many consigo misma para las categorías hijo, y una belongs_to para la categoría padre. Listo.
 
 # 3. Al hacer ajuste en la base de datos se debe modificar el catalogo para lograr esto.
 
-# 4. Gema ERD para esto.
+# 4. Gema ERD para esto. Listo.
 
