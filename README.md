@@ -1,24 +1,33 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Requerimientos:
 
-Things you may want to cover:
+# 1. extender funcionalidades de tal manera que los productos puedan tener muchas variaciones, por ejemplo, una polera puede tener talla X, M y L a la vez que cada una de ellas puede tener diferentes colores. El cliente es claro en indicarnos que cada una de estas variaciones maneja un stock independiente al resto.
 
-* Ruby version
+# 2. Categorías pueden tener muchas categorías hijo y solo una categoría padre. Hacer pruebas unitarias de esto.
 
-* System dependencies
+# 3. deben haber dos funcionalidades específicas: en el catálogo sólo se muestra un producto de cada tipo, esto es, si existe un modelo de zapatilla roja y otra negra, en el catálogo debe aparecer sólo una de ellas, esto implica que debe haber una página de descripción del producto en donde ahí podamos ver y elegir los colores y la talla, si una variación no tiene stock, no se puede comprar. Esto es importante, ya que si todas las variaciones no tienen stock, no debe aparecer en el catálogo principal.
 
-* Configuration
+# 4. Hacer diagrama de los modelos.
 
-* Database creation
+# 5.  Generar un método o scope en las categorías, de tal forma que entregue una lista de cada categoría padre y otro de sus hijos, y los hijos de sus hijos, en todos los niveles
 
-* Database initialization
+# 6. Según su diseño, explicar al cliente cómo implementar la lista de productos del catálogo
 
-* How to run the test suite
+# 7. Implementar o explicar las modificaciones (si las hay) al modelo OrderItem para que siga funcionando sin que afecte el resto del sistema.
 
-* Services (job queues, cache servers, search engines, etc.)
+# 8. Nuestro cliente, a último minuto nos solicita que nuestro sistema soporte cupones de dos tipos:
+# a) Uno para distribuir en redes sociales (1 cupón lo pueden ocupar muchas personas).
+# b) Otro para clientes específicos (1 cupón solo lo puede ocupar un cliente específico)
 
-* Deployment instructions
+# Respuestas: 
 
-* ...
+# 1. Para lograr que las poleras puedan tener tallas y colores en distintas variaciones, debemos crear las tablas Colores, Tallas y Variaciones. Además, debemos pasar los atributos de Producto: 'Stock', 'Price' y 'SKU' a la tabla Variaciones. Lo ideal sería quitar product_id de OrderItem, pero el desafío no nos permite quitar atributos de OrderItem. Por lo que se requiere agregar la variación del producto, con su color y talla en caso de aplicar.
+
+
+# 2. Para esto se debe agregar la columna 'category_id' a la tabla Categories, y crear una relación has_many consigo misma para las categorías hijo, y una belongs_to para la categoría padre.
+
+# 3. Al hacer ajuste en la base de datos se debe modificar el catalogo para lograr esto.
+
+# 4. Gema ERD para esto.
+
