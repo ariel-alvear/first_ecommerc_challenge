@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_31_203907) do
+ActiveRecord::Schema.define(version: 2021_03_31_225916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,16 +29,17 @@ ActiveRecord::Schema.define(version: 2021_03_31_203907) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "category_id"
+    t.index ["category_id"], name: "index_categories_on_category_id"
   end
 
   create_table "categories_products", id: false, force: :cascade do |t|
-    t.bigint "product_id", null: false
-    t.bigint "category_id", null: false
-    t.index ["category_id", "product_id"], name: "index_categories_products_on_category_id_and_product_id"
-    t.index ["product_id", "category_id"], name: "index_categories_products_on_product_id_and_category_id"
+    t.bigint "category_id"
+    t.bigint "product_id"
+    t.index ["category_id"], name: "index_categories_products_on_category_id"
+    t.index ["product_id"], name: "index_categories_products_on_product_id"
   end
 
   create_table "colors", force: :cascade do |t|
@@ -126,6 +127,9 @@ ActiveRecord::Schema.define(version: 2021_03_31_203907) do
     t.index ["size_id"], name: "index_variations_on_size_id"
   end
 
+  add_foreign_key "categories", "categories"
+  add_foreign_key "categories_products", "categories"
+  add_foreign_key "categories_products", "products"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "users"
