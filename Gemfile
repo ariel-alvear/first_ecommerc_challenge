@@ -72,3 +72,8 @@ gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dab
 
 # Model diagrams
 gem 'rails-erd', group: :development
+
+# TDD gem
+group :development, :test do
+  gem 'rspec-rails', '~> 5.0.0'
+end
