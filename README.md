@@ -27,7 +27,8 @@
 
 # 2. Para esto se debe agregar la columna 'category_id' a la tabla Categories, y crear una relación has_many consigo misma para las categorías hijo, y una belongs_to para la categoría padre. Listo.
 
-# 3. Al hacer ajuste en la base de datos se debe modificar el catalogo para lograr esto.
+# 3. Al hacer ajuste en la base de datos se debe modificar el catalogo para lograr esto. Se agrego un método en Application Record para obtener todos los productos que tengan stock. Este método se aplica en el controlador de home#index para así mostrar solo las variaciones que tengan stock. En el home#index se agrega una modificación para obtener desde la primera variación con stock, el color, talla y precio. Listo.
 
 # 4. Gema ERD para esto. Listo.
 
+# 5. Aplicamos los test unitarios.

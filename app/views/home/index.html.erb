@@ -5,12 +5,14 @@
         <% @products.each do |product| %>
           <div class="col-md-3">
             <div class="card">
-              <img class="card-img-top" src="https://dummyimage.com/600x400/c7c7c7/737373&text=image" alt="<%= product.name%>"/>
+              <img class="card-img-top" src="https://dummyimage.com/600x400/c7c7c7/737373&text=image" alt="<%= product.name %>"/>
               <div class="card-block">
                 <h5 class="card-title"><%= product.name %></h5>
                 <div class="card-text">
                   <div class="badge badge-primary"><%= product.categories.first.name %></div>
-                  <div>$<%= product.price %></div>
+                  <div>$<%= product.variations.first.price %></div>
+                  <div><%= product.variations.first.color.name %></div>
+                  <div><%= product.variations.first.size.name %></div>
                 </div>
                 <div class="row float-right">
                   <div class="col-md-12">
@@ -19,7 +21,6 @@
                       <%= f.hidden_field :quantity, value: 1 %>
                       <%= f.submit "Add to cart" %>
                     <% end %>
-                    <button class="btn btn-primary btn-sm">Add to cart</button>
                   </div>
                 </div>
               </div>
